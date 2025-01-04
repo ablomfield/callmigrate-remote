@@ -21,7 +21,7 @@ $cmserver = $rowsettings["cmserver"];
 // Check Registration
 echo("Checking Registration\n");
 if ($regstatus == 0) {
-  $regurl = "https://" . $cmserver . "/remote/register";
+  $regurl = "https://" . $cmserver . "/remote/register/";
   $getchreg = curl_init($regurl);
   curl_setopt($getchreg, CURLOPT_CUSTOMREQUEST, "GET");
   curl_setopt($getchreg, CURLOPT_RETURNTRANSFER, true);
@@ -35,7 +35,7 @@ if ($regstatus == 0) {
 
 // Check Tasks
 echo("Checking Tasks\n");
-$taskurl = "https://" . $cmserver . "/remote/checktasks";
+$taskurl = "https://" . $cmserver . "/remote/checktasks/";
 $postchtasks = curl_init($taskurl);
 curl_setopt($postchtasks, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($postchtasks, CURLOPT_RETURNTRANSFER, true);
