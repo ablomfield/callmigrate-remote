@@ -35,7 +35,7 @@ if ($regstatus == 0) {
 
 // Check Tasks
 echo("Checking Tasks\n");
-$taskurl = "https://" . $cmserver . "/remote/checktasks/";
+$taskurl = "https://" . $cmserver . "/remote/tasks/list/";
 $postchtasks = curl_init($taskurl);
 curl_setopt($postchtasks, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($postchtasks, CURLOPT_RETURNTRANSFER, true);
