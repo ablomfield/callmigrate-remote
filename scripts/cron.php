@@ -53,7 +53,7 @@ if ($taskarr->status == 200) {
   $tasknum = count($taskarr->tasklist);
   echo("Found $tasknum tasks.\n");
   for ($x = 0; $x <= $tasknum -1; $x++) {
-    echo "Task # " . $taskarr->tasklist[$x]->id . " - " . $taskarr->tasklist[$x]->description . "\n";
+    echo "Task # " . $taskarr->tasklist[$x]->id . " (" . $taskarr->tasklist[$x]->action . ") - " . $taskarr->tasklist[$x]->description . "\n";
   }
 } else {
   echo("Status " . $taskarr->status . "\n");
