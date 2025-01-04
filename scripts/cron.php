@@ -43,8 +43,9 @@ curl_setopt($postchtasks, CURLOPT_POSTFIELDS,
             http_build_query(array(
               'clientid' => $clientid,
               'clientsecret' => $clientsecret
-            )));
+)));
 $taskjson = curl_exec($postchtasks);
+print_r($taskjson);
 $taskarr = json_decode($taskjson);
 print_r($taskarr);
 ?>
