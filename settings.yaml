@@ -1,0 +1,17 @@
+Database:
+    ServerName: localhost
+    Username: cmdbuser
+    Password: HPwvw_8I5MzxBLZk
+    DBName: callmigrate
+Tunnels:
+    TunnelHost: callmigrate.click
+    TunnelUser: rem_exteqhzix68k
+    UCMEnable: true
+    UCMPort: 8081
+    UCMHost: 10.52.196.11
+    CUCEnable: true
+    CUCPort: 8082
+    CUCHost: 10.52.196.21
+    CCXEnable: true
+    CCXPort: 8083
+    CCXHost: 10.52.196.31

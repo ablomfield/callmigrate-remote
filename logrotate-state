@@ -1,0 +1,5 @@
+logrotate state -- version 2
+"/opt/callmigrate/logs/apache-access.log" 2024-2-20-0:0:0
+"/opt/callmigrate/logs/apache-error.log" 2024-2-20-0:0:0
+"/opt/callmigrate/logs/checktasks.log" 2024-2-20-0:0:1
+"/opt/callmigrate/logs/callmigrate.log" 2025-1-4-0:0:2

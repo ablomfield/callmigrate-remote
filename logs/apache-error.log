@@ -1,0 +1,116 @@
+[Mon Feb 19 20:02:41.270810 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59584] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:42.271799 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59584] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:42.605875 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59584] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:42.874090 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59584] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:43.096642 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59584] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:43.370551 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59584] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:43.571242 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59584] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:43.774870 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59584] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:43.995626 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59584] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:44.196679 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59584] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:44.401768 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59584] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:44.593137 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59584] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:44.879398 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59584] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:45.175273 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59584] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:45.352933 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59583] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:45.552500 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59583] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:45.729519 2024] [authz_core:error] [pid 9928] [client 10.136.223.1:59587] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:46.640604 2024] [authz_core:error] [pid 9928] [client 10.136.223.1:59587] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:47.226426 2024] [authz_core:error] [pid 9928] [client 10.136.223.1:59587] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:48.770646 2024] [authz_core:error] [pid 9928] [client 10.136.223.1:59587] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:48.842342 2024] [authz_core:error] [pid 9928] [client 10.136.223.1:59587] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:02:49.502388 2024] [authz_core:error] [pid 9928] [client 10.136.223.1:59587] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:49.572174 2024] [authz_core:error] [pid 9928] [client 10.136.223.1:59587] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:02:49.895647 2024] [authz_core:error] [pid 9928] [client 10.136.223.1:59587] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:49.979665 2024] [authz_core:error] [pid 9928] [client 10.136.223.1:59587] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:02:50.159804 2024] [authz_core:error] [pid 9928] [client 10.136.223.1:59587] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:50.226129 2024] [authz_core:error] [pid 9928] [client 10.136.223.1:59587] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:02:50.394803 2024] [authz_core:error] [pid 9928] [client 10.136.223.1:59587] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:02:50.461150 2024] [authz_core:error] [pid 9928] [client 10.136.223.1:59587] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:03:09.034566 2024] [authz_core:error] [pid 9929] [client 10.136.223.1:59588] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:03:09.103848 2024] [authz_core:error] [pid 9929] [client 10.136.223.1:59588] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:03:10.000120 2024] [authz_core:error] [pid 9929] [client 10.136.223.1:59588] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:03:10.087068 2024] [authz_core:error] [pid 9929] [client 10.136.223.1:59588] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:03:11.131163 2024] [authz_core:error] [pid 9929] [client 10.136.223.1:59588] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:03:11.234072 2024] [authz_core:error] [pid 9929] [client 10.136.223.1:59588] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:03:28.999506 2024] [authz_core:error] [pid 9930] [client 10.136.223.1:59597] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:03:29.075638 2024] [authz_core:error] [pid 9930] [client 10.136.223.1:59597] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:03:31.294071 2024] [authz_core:error] [pid 9930] [client 10.136.223.1:59597] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:03:31.370044 2024] [authz_core:error] [pid 9930] [client 10.136.223.1:59597] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:03:32.031681 2024] [authz_core:error] [pid 9930] [client 10.136.223.1:59597] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:03:32.101968 2024] [authz_core:error] [pid 9930] [client 10.136.223.1:59597] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:03:32.697037 2024] [authz_core:error] [pid 9930] [client 10.136.223.1:59597] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:03:32.766128 2024] [authz_core:error] [pid 9930] [client 10.136.223.1:59597] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:03:33.372150 2024] [authz_core:error] [pid 9930] [client 10.136.223.1:59597] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:03:33.443035 2024] [authz_core:error] [pid 9930] [client 10.136.223.1:59597] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:35.487023 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59692] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:35.555483 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59692] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:36.332341 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59692] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:36.402478 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59692] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:36.609573 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59692] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:36.678067 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59692] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:36.828190 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59692] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:36.892177 2024] [authz_core:error] [pid 9926] [client 10.136.223.1:59692] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:54.201215 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:54.277880 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:55.029332 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:55.097703 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:55.205854 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:55.269909 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:55.370651 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:55.432927 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:55.531921 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:55.593772 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:55.691855 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:55.755186 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:55.859776 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:55.934083 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:56.026787 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:56.089562 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:56.158131 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:56.227882 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:56.328485 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:56.394365 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:56.494639 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:56.556183 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:56.660327 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:56.720055 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:04:56.827092 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/
+[Mon Feb 19 20:04:56.898459 2024] [authz_core:error] [pid 9927] [client 10.136.223.1:59693] AH01630: client denied by server configuration: /opt/callmigrate/html/favicon.ico, referer: http://10.52.196.50/
+[Mon Feb 19 20:15:54.860641 2024] [php:error] [pid 10016] [client 10.136.223.1:60267] PHP Fatal error:  Uncaught Error: Call to undefined function yaml_parse_file() in /opt/callmigrate/html/index.php:3\nStack trace:\n#0 {main}\n  thrown in /opt/callmigrate/html/index.php on line 3
+[Mon Feb 19 20:15:55.920126 2024] [php:error] [pid 10017] [client 10.136.223.1:60268] PHP Fatal error:  Uncaught Error: Call to undefined function yaml_parse_file() in /opt/callmigrate/html/index.php:3\nStack trace:\n#0 {main}\n  thrown in /opt/callmigrate/html/index.php on line 3
+[Mon Feb 19 20:16:16.840444 2024] [php:error] [pid 10341] [client 10.136.223.1:60269] PHP Fatal error:  Uncaught Error: Call to undefined function yaml_parse_file() in /opt/callmigrate/html/index.php:3\nStack trace:\n#0 {main}\n  thrown in /opt/callmigrate/html/index.php on line 3
+[Mon Feb 19 20:16:17.941227 2024] [php:error] [pid 10389] [client 10.136.223.1:60276] PHP Fatal error:  Uncaught Error: Call to undefined function yaml_parse_file() in /opt/callmigrate/html/index.php:3\nStack trace:\n#0 {main}\n  thrown in /opt/callmigrate/html/index.php on line 3
+[Mon Feb 19 20:16:27.421769 2024] [php:warn] [pid 10689] [client 10.136.223.1:60296] PHP Warning:  Trying to access array offset on value of type null in /opt/callmigrate/html/index.php on line 17
+[Mon Feb 19 20:16:28.482816 2024] [php:warn] [pid 10689] [client 10.136.223.1:60296] PHP Warning:  Trying to access array offset on value of type null in /opt/callmigrate/html/index.php on line 17
+[Mon Feb 19 20:17:14.428767 2024] [php:warn] [pid 10690] [client 10.136.223.1:60297] PHP Warning:  Trying to access array offset on value of type null in /opt/callmigrate/html/index.php on line 17
+[Mon Feb 19 20:17:15.617962 2024] [php:warn] [pid 10690] [client 10.136.223.1:60297] PHP Warning:  Trying to access array offset on value of type null in /opt/callmigrate/html/index.php on line 17
+[Mon Feb 19 20:17:16.183159 2024] [php:warn] [pid 10690] [client 10.136.223.1:60297] PHP Warning:  Trying to access array offset on value of type null in /opt/callmigrate/html/index.php on line 17
+[Mon Feb 19 20:17:16.399823 2024] [php:warn] [pid 10690] [client 10.136.223.1:60297] PHP Warning:  Trying to access array offset on value of type null in /opt/callmigrate/html/index.php on line 17
+[Mon Feb 19 20:17:44.242574 2024] [php:warn] [pid 10691] [client 10.136.223.1:60317] PHP Warning:  Trying to access array offset on value of type null in /opt/callmigrate/html/index.php on line 17
+[Mon Feb 19 20:17:44.910107 2024] [php:warn] [pid 10691] [client 10.136.223.1:60317] PHP Warning:  Trying to access array offset on value of type null in /opt/callmigrate/html/index.php on line 17
+[Mon Feb 19 20:17:45.131017 2024] [php:warn] [pid 10691] [client 10.136.223.1:60317] PHP Warning:  Trying to access array offset on value of type null in /opt/callmigrate/html/index.php on line 17
+[Mon Feb 19 20:17:45.336815 2024] [php:warn] [pid 10691] [client 10.136.223.1:60317] PHP Warning:  Trying to access array offset on value of type null in /opt/callmigrate/html/index.php on line 17
+[Mon Feb 19 20:17:45.572167 2024] [php:warn] [pid 10691] [client 10.136.223.1:60317] PHP Warning:  Trying to access array offset on value of type null in /opt/callmigrate/html/index.php on line 17
+[Mon Feb 19 20:17:45.728495 2024] [php:warn] [pid 10691] [client 10.136.223.1:60317] PHP Warning:  Trying to access array offset on value of type null in /opt/callmigrate/html/index.php on line 17
+[Mon Feb 19 20:17:45.919285 2024] [php:warn] [pid 10691] [client 10.136.223.1:60317] PHP Warning:  Trying to access array offset on value of type null in /opt/callmigrate/html/index.php on line 17
+[Mon Feb 19 20:32:07.165067 2024] [php:warn] [pid 10694] [client 10.136.223.1:60866] PHP Warning:  Undefined variable $personid in /opt/callmigrate/html/includes/menu.php on line 2
+[Mon Feb 19 20:32:20.227911 2024] [php:warn] [pid 10690] [client 10.136.223.1:60877] PHP Warning:  Undefined variable $personid in /opt/callmigrate/html/includes/menu.php on line 2
+[Mon Feb 19 20:32:21.296278 2024] [php:warn] [pid 10690] [client 10.136.223.1:60877] PHP Warning:  Undefined variable $personid in /opt/callmigrate/html/includes/menu.php on line 2
+[Mon Feb 19 20:33:23.717701 2024] [php:warn] [pid 10699] [client 10.136.223.1:60938] PHP Warning:  Undefined variable $personid in /opt/callmigrate/html/includes/menu.php on line 2
+[Mon Feb 19 20:33:29.271045 2024] [php:warn] [pid 10700] [client 10.136.223.1:60939] PHP Warning:  Undefined variable $personid in /opt/callmigrate/html/includes/menu.php on line 2
+[Mon Feb 19 20:33:30.546071 2024] [php:warn] [pid 10700] [client 10.136.223.1:60939] PHP Warning:  Undefined variable $personid in /opt/callmigrate/html/includes/menu.php on line 2
+[Mon Feb 19 20:33:57.771093 2024] [php:warn] [pid 10702] [client 10.136.223.1:61033] PHP Warning:  Undefined variable $personid in /opt/callmigrate/html/includes/menu.php on line 2
+[Mon Feb 19 20:33:58.817770 2024] [php:warn] [pid 10702] [client 10.136.223.1:61033] PHP Warning:  Undefined variable $personid in /opt/callmigrate/html/includes/menu.php on line 2
+[Mon Feb 19 20:34:58.163932 2024] [php:warn] [pid 10689] [client 10.136.223.1:61086] PHP Warning:  Undefined variable $menusection in /opt/callmigrate/html/includes/menu.php on line 2
+[Mon Feb 19 20:34:58.163999 2024] [php:warn] [pid 10689] [client 10.136.223.1:61086] PHP Warning:  Undefined variable $menusection in /opt/callmigrate/html/includes/menu.php on line 7
+[Mon Feb 19 20:34:58.164021 2024] [php:warn] [pid 10689] [client 10.136.223.1:61086] PHP Warning:  Undefined variable $menusection in /opt/callmigrate/html/includes/menu.php on line 12
+[Mon Feb 19 20:35:00.166870 2024] [php:warn] [pid 10689] [client 10.136.223.1:61086] PHP Warning:  Undefined variable $menusection in /opt/callmigrate/html/includes/menu.php on line 2, referer: http://10.52.196.50/
+[Mon Feb 19 20:35:00.166917 2024] [php:warn] [pid 10689] [client 10.136.223.1:61086] PHP Warning:  Undefined variable $menusection in /opt/callmigrate/html/includes/menu.php on line 7, referer: http://10.52.196.50/
+[Mon Feb 19 20:35:00.166928 2024] [php:warn] [pid 10689] [client 10.136.223.1:61086] PHP Warning:  Undefined variable $menusection in /opt/callmigrate/html/includes/menu.php on line 12, referer: http://10.52.196.50/
+[Mon Feb 19 20:35:48.989672 2024] [php:warn] [pid 10694] [client 10.136.223.1:61085] PHP Warning:  Undefined variable $menusection in /opt/callmigrate/html/includes/menu.php on line 2, referer: http://10.52.196.50/
+[Mon Feb 19 20:35:48.989805 2024] [php:warn] [pid 10694] [client 10.136.223.1:61085] PHP Warning:  Undefined variable $menusection in /opt/callmigrate/html/includes/menu.php on line 7, referer: http://10.52.196.50/
+[Mon Feb 19 20:35:50.639042 2024] [php:warn] [pid 10694] [client 10.136.223.1:61085] PHP Warning:  Undefined variable $menusection in /opt/callmigrate/html/includes/menu.php on line 2, referer: http://10.52.196.50/
+[Mon Feb 19 20:35:50.639137 2024] [php:warn] [pid 10694] [client 10.136.223.1:61085] PHP Warning:  Undefined variable $menusection in /opt/callmigrate/html/includes/menu.php on line 7, referer: http://10.52.196.50/
+[Mon Feb 19 20:35:55.440133 2024] [php:warn] [pid 10694] [client 10.136.223.1:61085] PHP Warning:  Undefined variable $menusection in /opt/callmigrate/html/includes/menu.php on line 2, referer: http://10.52.196.50/
+[Mon Feb 19 20:35:55.440203 2024] [php:warn] [pid 10694] [client 10.136.223.1:61085] PHP Warning:  Undefined variable $menusection in /opt/callmigrate/html/includes/menu.php on line 7, referer: http://10.52.196.50/
