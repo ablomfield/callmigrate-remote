@@ -37,6 +37,11 @@ $taskurl = "https://" . $cmserver . "/remote/checktasks";
 $postchtasks = curl_init($taskurl);
 curl_setopt($postchtasks, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($postchtasks, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($postchtasks, CURLOPT_POSTFIELDS,
+            http_build_query(array(
+              'clientid' => $clientid,
+              'clientsecret' => $clientsecret
+            )));
 $taskjson = curl_exec($postchtasks);
 $taskarr = json_decode($taskjson);
 print_r($taskarr);
