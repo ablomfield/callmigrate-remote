@@ -48,6 +48,8 @@ $taskjson = curl_exec($postchtasks);
 $taskarr = json_decode($taskjson);
 if ($taskarr->status == 200) {
   echo("Status 200\n");
+  $tasknum = count($taskarr->tasklist);
+  echo("Found $tasknum tasks.\n");
 } else {
   echo("Status " . $taskarr->status . "\n");
 }
