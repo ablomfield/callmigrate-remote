@@ -45,7 +45,10 @@ curl_setopt($postchtasks, CURLOPT_POSTFIELDS,
               'clientsecret' => $clientsecret
 )));
 $taskjson = curl_exec($postchtasks);
-print_r($taskjson);
 $taskarr = json_decode($taskjson);
-print_r($taskarr);
+if ($taskarr->status == 200) {
+  echo("Status 200\n");
+} else {
+  echo("Status " . $taskarr->status . "\n");
+}
 ?>
