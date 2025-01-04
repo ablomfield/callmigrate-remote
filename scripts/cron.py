@@ -28,6 +28,8 @@ rssettings = objsettings.fetchone()
 regstatus    = rssettings["regstatus"]
 clientid     = rssettings["clientid"]
 clientsecret = rssettings["clientsecret"]
+cmserver     = rssettings["cmserver"]
+cmremuser    = rssettings["cmremuser"]
 dbconn.close
 
 #--------------Check Registration-------------#
@@ -46,7 +48,6 @@ if regstatus == 0:
   dbconn.commit()
   objregister.close
   dbconn.close
-
 
 #----------------Check Tasks------------------#
 logger.info("Checking for new tasks")
