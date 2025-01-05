@@ -24,7 +24,7 @@ if ($regstatus == 1) {
 <html>
 <head>
 <title>CallMigrate Remote</title>
-<link rel="icon" type="image/svg" href="/images/callmigrate.svg">
+<link rel="icon" type="image/svg" href="/images/callmigrate.ico">
 <link rel="stylesheet" href="/css/callmigrate.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
