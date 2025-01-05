@@ -76,6 +76,20 @@ if ($taskarr->status == 200) {
 
     } elseif ($taskarr->tasklist[$x]->action == "RESTARTTUNNELS") {
       exec('service callmigrate-tunnel restart');
+      $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
+      $postchcomp = curl_init($compurl);
+      curl_setopt($postchcomp, CURLOPT_CUSTOMREQUEST, "POST");
+      curl_setopt($postchcomp, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt(
+        $postchcomp,
+        CURLOPT_POSTFIELDS,
+        http_build_query(array(
+          'clientid' => $clientid,
+          'clientsecret' => $clientsecret,
+          'taskid' => $taskarr->tasklist[$x]->id
+        ))
+      );
+      $compjson = curl_exec($postchcomp);
     }
   }
 } else {
