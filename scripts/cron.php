@@ -34,8 +34,11 @@ if ($regstatus == 0) {
   $regarr = json_decode($regjson);
   $clientid = $regarr->clientid;
   $clientsecret = $regarr->clientsecret;
-  $regsql = "UPDATE settings SET regstatus = 1, clientid = '$clientid', clientsecret = '$clientsecret'";
+  $remoteuser = $regarr->remoteuser;
+  $regsql = "UPDATE settings SET regstatus = 1, clientid = '$clientid', clientsecret = '$clientsecret', remoteuser = '$remoteuser'";
   $dbconn->query($regsql);
+  exec("ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa");
+  exec("sudo cp ~/.ssh/id_rsa* /root/.ssh");
 }
 
 // Check Tasks
