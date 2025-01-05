@@ -72,6 +72,10 @@ if ($taskarr->status == 200) {
         ))
       );
       $compjson = curl_exec($postchcomp);
+    } elseif ($taskarr->tasklist[$x]->action == "SYNCTUNNELS") {
+
+    } elseif ($taskarr->tasklist[$x]->action == "RESTARTTUNNELS") {
+      exec('service callmigrate-tunnel restart');
     }
   }
 } else {
