@@ -30,7 +30,7 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`pkid`, `sitetitle`, `regstatus`, `cmserver`) VALUES (0, 'CallMigrate', 0, 'callmigrate.click');
+INSERT INTO `settings` (`pkid`, `sitetitle`, `regstatus`, `cmserver`) VALUES (0, 'CallMigrate Remote', 0, 'callmigrate.click');
 
 -- --------------------------------------------------------
 
