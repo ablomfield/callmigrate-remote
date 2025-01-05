@@ -86,6 +86,7 @@ if ($taskarr->status == 200) {
         ))
       );
       $tunneljson = curl_exec($postchtunnels);
+      print_r($tunneljson);
       $tunnelarr = json_decode($tunneljson);
       $tunnelcount = count($tunnelarr->tunnellist);
       mysqli_query($dbconn,"DELETE FROM tunnels");
