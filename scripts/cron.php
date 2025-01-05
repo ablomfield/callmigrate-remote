@@ -53,6 +53,7 @@ curl_setopt(
   ))
 );
 $taskjson = curl_exec($postchtasks);
+print_r($taskjson);
 $taskarr = json_decode($taskjson);
 if ($taskarr->status == 200) {
   echo ("Status 200\n");
