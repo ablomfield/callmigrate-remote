@@ -28,7 +28,7 @@ if ($regstatus == 0) {
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - CallMigrate Remote not registered. Starting registration process.");
   $regurl = "https://" . $cmserver . "/remote/register/";
   $getchreg = curl_init($regurl);
-  curl_setopt($getchreg, CURLOPT_CUSTOMREQUEST, "GET");
+  curl_setopt($getchreg, CURLOPT_CUSTOMREQUEST, "POST");
   curl_setopt($getchreg, CURLOPT_RETURNTRANSFER, true);
   $regjson = curl_exec($getchreg);
   $regarr = json_decode($regjson);
