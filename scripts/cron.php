@@ -131,8 +131,6 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
       $compjson = curl_exec($postchcomp);
     }
   }
-} else {
-  echo ("No tasks found.\n");
 }
 
 // Close Log File
