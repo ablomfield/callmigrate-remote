@@ -75,7 +75,7 @@ if ($taskarr->status == 200) {
     } elseif ($taskarr->tasklist[$x]->action == "SYNCTUNNELS") {
 
     } elseif ($taskarr->tasklist[$x]->action == "RESTARTTUNNELS") {
-      exec('service callmigrate-tunnel restart');
+      exec('sudo service callmigrate-tunnel restart');
       $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
       $postchcomp = curl_init($compurl);
       curl_setopt($postchcomp, CURLOPT_CUSTOMREQUEST, "POST");
