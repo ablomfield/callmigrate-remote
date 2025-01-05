@@ -84,11 +84,14 @@ if ($taskarr->status == 200) {
         ))
       );
       $tunneljson = curl_exec($postchtunnels);
-      print_r($tunneljson);
+      //print_r($tunneljson);
+      echo("Deleting existing tunnels\n");
       $tunnelarr = json_decode($tunneljson);
       $tunnelcount = count($tunnelarr->tunnellist);
+      echo("Syncronizing $tunnelcount tunnels\n");
       mysqli_query($dbconn,"DELETE FROM tunnels");
-      for ($y = 0; $y <= $tasknum - 1; $y++) {
+      for ($y = 0; $y <= $tunnelcount - 1; $y++) {
+        echo("Adding " . $tunnelarr->tunnellist[$y]->application . " tunnel. " . $tunnelarr->tunnellist[$y]->remotehost . ":" . $tunnelarr->tunnellist[$y]->remoteport . " to " . $tunnelarr->tunnellist[$y]->tunnelport . "\n");
         mysqli_query($dbconn,"INSERT INTO tunnels (`tunnelname`, `tunnelport`, `localhost`, `localport`) VALUES ('" . $tunnelarr->tunnellist[$y]->application . "', '" . $tunnelarr->tunnellist[$y]->tunnelport . "', '" . $tunnelarr->tunnellist[$y]->remotehost . "', '" . $tunnelarr->tunnellist[$y]->remoteport . "')");
       }
       exec('sudo service callmigrate-tunnel restart');
