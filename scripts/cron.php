@@ -132,7 +132,7 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
     }
   }
 } else {
-  echo ("Status " . $taskarr->status . "\n");
+  echo ("No tasks found.\n");
 }
 
 // Close Log File
