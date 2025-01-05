@@ -74,3 +74,10 @@ ALTER TABLE `settings`
 ALTER TABLE `tunnels`
   MODIFY `pkid` int NOT NULL AUTO_INCREMENT;
 COMMIT;
+
+--
+-- ADD cmdbuser and GRANT 
+--
+CREATE USER 'cmdbuser'@'localhost' IDENTIFIED BY 'HPwvw_8I5MzxBLZk';
+GRANT ALL PRIVILEGES ON callmigrate.* TO 'cmdbuser'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
