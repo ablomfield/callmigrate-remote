@@ -18,9 +18,14 @@ $clientid = $rowsettings["clientid"];
 $clientsecret = $rowsettings["clientsecret"];
 $cmserver = $rowsettings["cmserver"];
 
+// Open Log File
+$logfile = fopen("/opt/callmigrate/logs/callmigrate.log", "a") or die("Unable to open file!");
+fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Checking for tasks.");
+
 // Check Registration
 echo ("Checking Registration\n");
 if ($regstatus == 0) {
+  fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - CallMigrate Remote not registered. Starting registration process.");
   $regurl = "https://" . $cmserver . "/remote/register/";
   $getchreg = curl_init($regurl);
   curl_setopt($getchreg, CURLOPT_CUSTOMREQUEST, "GET");
@@ -130,3 +135,6 @@ if ($taskarr->status == 200) {
 } else {
   echo ("Status " . $taskarr->status . "\n");
 }
+
+// Close Log File
+fclose($logfile);
