@@ -73,7 +73,40 @@ if ($taskarr->status == 200) {
       );
       $compjson = curl_exec($postchcomp);
     } elseif ($taskarr->tasklist[$x]->action == "SYNCTUNNELS") {
-
+      $tunnelurl = "https://" . $cmserver . "/remote/tunnels/";
+      $postchtunnels = curl_init($tunnelurl);
+      curl_setopt($postchtunnels, CURLOPT_CUSTOMREQUEST, "POST");
+      curl_setopt($postchtunnels, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt(
+        $postchtunnels,
+        CURLOPT_POSTFIELDS,
+        http_build_query(array(
+          'clientid' => $clientid,
+          'clientsecret' => $clientsecret
+        ))
+      );
+      $tunneljson = curl_exec($postchtunnels);
+      $tunnelarr = json_decode($tunneljson);
+      $tunnelcount = count($tunnelarr->tunnellist);
+      mysqli_query($dbconn,"DELETE FROM tunnels");
+      for ($y = 0; $y <= $tasknum - 1; $y++) {
+        mysqli_query($dbconn,"INSERT INTO tunnels (`tunnelname`, `tunnelport`, `localhost`, `localport`) VALUES ('" . $tunnelarr->tunnellist[$y]->application . "', '" . $tunnelarr->tunnellist[$y]->tunnelport . "', '" . $tunnelarr->tunnellist[$y]->remotehost . "', '" . $tunnelarr->tunnellist[$y]->remoteport . "')");
+      }
+      exec('sudo service callmigrate-tunnel restart');
+      $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
+      $postchcomp = curl_init($compurl);
+      curl_setopt($postchcomp, CURLOPT_CUSTOMREQUEST, "POST");
+      curl_setopt($postchcomp, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt(
+        $postchcomp,
+        CURLOPT_POSTFIELDS,
+        http_build_query(array(
+          'clientid' => $clientid,
+          'clientsecret' => $clientsecret,
+          'taskid' => $taskarr->tasklist[$x]->id
+        ))
+      );
+      $compjson = curl_exec($postchcomp);
     } elseif ($taskarr->tasklist[$x]->action == "RESTARTTUNNELS") {
       exec('sudo service callmigrate-tunnel restart');
       $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
