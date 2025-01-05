@@ -49,8 +49,6 @@ curl_setopt(
 );
 $taskjson = curl_exec($postchtasks);
 $taskarr = json_decode($taskjson);
-print_r($taskarr->tasklist);
-echo ("\n");
 if ($taskarr->status == 200) {
   echo ("Status 200\n");
   $tasknum = count($taskarr->tasklist);
