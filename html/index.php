@@ -1,53 +1,69 @@
 <?php
-// Retrieve YAML Settings
-$yamlsettings = yaml_parse_file('/opt/callmigrate/settings.yaml');
-$dbserver = $yamlsettings['Database']['ServerName'];
-$dbuser = $yamlsettings['Database']['Username'];
-$dbpass = $yamlsettings['Database']['Password'];
-$dbname = $yamlsettings['Database']['DBName'];
+session_start();
 
-// Load Settings
-$dbconn = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
-if ($dbconn->connect_error) {
-    die("Connection failed: " . $dbconn->connect_error);
+// Retrieve Settings
+include($_SERVER['DOCUMENT_ROOT'] . "/includes/settings.php");
+
+// Retrieve and Perform Actions
+if (isset($_REQUEST["action"])) {
+    $action = $_REQUEST["action"];
+} else {
+    $action = "";
 }
-$rssettings = mysqli_query($dbconn, "SELECT * FROM settings") or die("Error in Selecting " . mysqli_err
-or($dbconn));
-$rowsettings = mysqli_fetch_assoc($rssettings);
+
 $regstatus = $rowsettings["regstatus"];
 if ($regstatus == 1) {
     $regstatus = "Registered";
-  } else {
+} else {
     $regstatus = "Unregistered";
 }
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title>CallMigrate Remote</title>
-<link rel="icon" type="image/svg" href="/images/callmigrate.ico">
-<link rel="stylesheet" href="/css/callmigrate.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://kit.fontawesome.com/5a918f4f0f.js" crossorigin="anonymous"></script>
+    <title>CallMigrate</title>
+    <link rel="icon" type="image/icon" href="/images/callmigrate.ico">
+    <link rel="stylesheet" href="/css/callmigrate.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='https://code.jquery.com/jquery-1.4.2.js'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-dark-grey.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="https://cdn.datatables.net/2.1.7/css/dataTables.dataTables.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
 </head>
+
 <body>
-<div class="parent">
-    <div class="cm-logo">
-        <?php include $_SERVER['DOCUMENT_ROOT']."/includes/logo.php"; ?>
+    <div class="parent">
+        <div class="cm-logo">
+            <?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/logo.php"; ?>
+        </div>
+        <div class="cm-title">
+            <?php echo ($sitetitle); ?>
+        </div>
+        <div class="cm-tasks">
+        </div>
+        <div class="cm-avatar">
+        </div>
+        <div class="cm-menu">
+        </div>
+        <div class="cm-customer">
+        </div>
+        <div class="cm-body" style="width: 800px">
+            <?php
+            echo ("    <p>Registration Status: " . $regstatus . "</p>\n");
+            ?>
+        </div>
+        <div class="cm-footer">
+            <?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php"; ?>
+        </div>
     </div>
-    <div class="cm-title">
-        <?php include $_SERVER['DOCUMENT_ROOT']."/includes/title.php"; ?>
-    </div>
-    <div class="cm-body">
-    <?php
-    echo("    <p>Registration Status: " . $regstatus . "</p>\n");
-    ?>
-    </div>
-    <div class="cm-footer">
-        <?php include $_SERVER['DOCUMENT_ROOT']."/includes/footer.php"; ?>
-    </div>
-</div>
 </body>
+
 </html>
