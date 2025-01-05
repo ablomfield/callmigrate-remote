@@ -8,8 +8,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `callmigrate`
 --
+CREATE DATABASE IF NOT EXISTS `callmigrate` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `callmigrate`;
 
--- --------------------------------------------------------
 
 --
 -- Table structure for table `settings`
