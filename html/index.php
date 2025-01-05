@@ -22,7 +22,7 @@ if ($regstatus == 1) {
 <html lang="en">
 
 <head>
-    <title>CallMigrate</title>
+    <title><?php echo ($sitetitle); ?></title>
     <link rel="icon" type="image/icon" href="/images/callmigrate.ico">
     <link rel="stylesheet" href="/css/callmigrate.css">
     <meta charset="utf-8">
