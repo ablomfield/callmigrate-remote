@@ -35,7 +35,7 @@ if ($regstatus == 0) {
   $clientid = $regarr->clientid;
   $clientsecret = $regarr->clientsecret;
   $remoteuser = $regarr->remoteuser;
-  $regsql = "UPDATE settings SET regstatus = 1, clientid = '$clientid', clientsecret = '$clientsecret', remoteuser = '$remoteuser'";
+  $regsql = "UPDATE settings SET regstatus = 1, clientid = '$clientid', clientsecret = '$clientsecret', cmremuser = '$remoteuser'";
   $dbconn->query($regsql);
   exec("ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa");
   exec("sudo cp ~/.ssh/id_rsa* /root/.ssh");
