@@ -44,7 +44,7 @@ if ($regstatus == 0) {
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Copying keys to root.");
   $sshkey = fopen("/home/cmadmin/.ssh/id_rsa.pub", "r") or die("Unable to open file!");
   $pubkey = fread($sshkey,filesize("/home/cmadmin/.ssh/id_rsa.pub"));
-  $keyurl = "https://" . $cmserver . "/remote/tasks/complete/";
+  $keyurl = "https://" . $cmserver . "/remote/register/sshkey/";
   $postchkey = curl_init($keyurl);
   curl_setopt($postchkey, CURLOPT_CUSTOMREQUEST, "POST");
   curl_setopt($postchkey, CURLOPT_RETURNTRANSFER, true);
