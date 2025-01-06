@@ -58,11 +58,11 @@ if ($regstatus == 1) {
         <div class="cm-body" style="width: 800px">
             <table>
                 <tr>
-                    <td><b>Registration Status:</b></td>
+                    <td align="right"><b>Registration Status:</b></td>
                     <td><?php echo($regstatus); ?></td>
                 </tr>
                 <tr>
-                    <td><b>IP Address:</b></td>
+                    <td align="right"><b>IP Address:</b></td>
                     <td><?php echo($_SERVER['SERVER_ADDR']); ?></td>
                 </tr>
             </table>
