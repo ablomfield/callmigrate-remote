@@ -20,6 +20,6 @@ $cmserver = $rowsettings["cmserver"];
 
 // Send SSH Key
 $sshkey = fopen("/home/cmadmin/.ssh/id_rsa.pub", "r") or die("Unable to open file!");
-echo fread($myfile,filesize("webdictionary.txt"));
-fclose($myfile);
+echo fread($sshkey,filesize("webdictionary.txt"));
+fclose($sshkey);
 ?>
