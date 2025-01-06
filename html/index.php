@@ -11,11 +11,16 @@ if (isset($_REQUEST["action"])) {
     $action = "";
 }
 
-$regstatus = $rowsettings["regstatus"];
 if ($regstatus == 1) {
     $regstatus = "Registered";
 } else {
     $regstatus = "Unregistered";
+}
+
+if ($claimstatus == 1) {
+    $claimstatus = "Claimed";
+} else {
+    $claimstatus = "Unclaimed";
 }
 ?>
 <!DOCTYPE html>
@@ -61,6 +66,10 @@ if ($regstatus == 1) {
                     <td align="right"><b>Registration Status:</b></td>
                     <td><?php echo($regstatus); ?></td>
                 </tr>
+                <tr>
+                    <td align="right"><b>Claim Status:</b></td>
+                    <td><?php echo($claimstatus); ?></td>
+                </tr>                
                 <tr>
                     <td align="right"><b>IP Address:</b></td>
                     <td><?php echo($_SERVER['SERVER_ADDR']); ?></td>
