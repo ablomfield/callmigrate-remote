@@ -74,6 +74,14 @@ if ($claimstatus == 1) {
                     <td align="right"><b>IP Address:</b></td>
                     <td><?php echo($_SERVER['SERVER_ADDR']); ?></td>
                 </tr>
+                <tr>
+                    <td align="right"><b>Client ID:</b></td>
+                    <td><?php echo($clientid); ?></td>
+                </tr>
+                <tr>
+                    <td align="right"><b>Tunnels:</b></td>
+                    <td>&nbsp;</td>
+                </tr>                
             </table>
         </div>
         <div class="cm-footer">
