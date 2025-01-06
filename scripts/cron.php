@@ -35,10 +35,13 @@ if ($regstatus == 0) {
   $clientid = $regarr->clientid;
   $clientsecret = $regarr->clientsecret;
   $remoteuser = $regarr->remoteuser;
+  fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Retrieved registration details.");
   $regsql = "UPDATE settings SET regstatus = 1, clientid = '$clientid', clientsecret = '$clientsecret', cmremuser = '$remoteuser'";
   $dbconn->query($regsql);
   exec("ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa");
+  fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Generating RSA keys.");
   exec("sudo cp ~/.ssh/id_rsa* /root/.ssh");
+  fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Copying keys to root.");
 }
 
 // Check Tasks
@@ -60,9 +63,11 @@ $taskarr = json_decode($taskjson);
 if ($taskarr->status == 200 && $taskarr->tasks > 0) {
   $tasknum = count($taskarr->tasklist);
   echo ("Found $tasknum tasks.\n");
+  fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Found $tasknum tasks.");
   for ($x = 0; $x <= $tasknum - 1; $x++) {
     echo "Task # " . $taskarr->tasklist[$x]->id . " (" . $taskarr->tasklist[$x]->action . ") - " . $taskarr->tasklist[$x]->description . "\n";
     if ($taskarr->tasklist[$x]->action == "CHECKIN") {
+      fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Executing check in.");
       $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
       $postchcomp = curl_init($compurl);
       curl_setopt($postchcomp, CURLOPT_CUSTOMREQUEST, "POST");
@@ -78,6 +83,7 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
       );
       $compjson = curl_exec($postchcomp);
     } elseif ($taskarr->tasklist[$x]->action == "SYNCTUNNELS") {
+      fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Executing tunnel sync.");
       $tunnelurl = "https://" . $cmserver . "/remote/tunnels/";
       $postchtunnels = curl_init($tunnelurl);
       curl_setopt($postchtunnels, CURLOPT_CUSTOMREQUEST, "POST");
@@ -93,14 +99,18 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
       $tunneljson = curl_exec($postchtunnels);
       //print_r($tunneljson);
       echo("Deleting existing tunnels\n");
+      fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Deleting existing tunnels.");
       $tunnelarr = json_decode($tunneljson);
       $tunnelcount = count($tunnelarr->tunnellist);
+      fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Syncronizing $tunnelcount tunnels.");
       echo("Syncronizing $tunnelcount tunnels\n");
       mysqli_query($dbconn,"DELETE FROM tunnels");
       for ($y = 0; $y <= $tunnelcount - 1; $y++) {
+        fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Adding " . $tunnelarr->tunnellist[$y]->application . " tunnel. " . $tunnelarr->tunnellist[$y]->remotehost . ":" . $tunnelarr->tunnellist[$y]->remoteport . " to " . $tunnelarr->tunnellist[$y]->tunnelport . ".");
         echo("Adding " . $tunnelarr->tunnellist[$y]->application . " tunnel. " . $tunnelarr->tunnellist[$y]->remotehost . ":" . $tunnelarr->tunnellist[$y]->remoteport . " to " . $tunnelarr->tunnellist[$y]->tunnelport . "\n");
         mysqli_query($dbconn,"INSERT INTO tunnels (`tunnelname`, `tunnelport`, `localhost`, `localport`) VALUES ('" . $tunnelarr->tunnellist[$y]->application . "', '" . $tunnelarr->tunnellist[$y]->tunnelport . "', '" . $tunnelarr->tunnellist[$y]->remotehost . "', '" . $tunnelarr->tunnellist[$y]->remoteport . "')");
       }
+      fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Restarting tunnel service.");
       exec('sudo service callmigrate-tunnel restart');
       $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
       $postchcomp = curl_init($compurl);
@@ -117,6 +127,8 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
       );
       $compjson = curl_exec($postchcomp);
     } elseif ($taskarr->tasklist[$x]->action == "RESTARTTUNNELS") {
+      fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Executing tunnel restart.");
+      echo("Restarting tunnel service\n");
       exec('sudo service callmigrate-tunnel restart');
       $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
       $postchcomp = curl_init($compurl);
@@ -134,6 +146,9 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
       $compjson = curl_exec($postchcomp);
     }
   }
+} else {
+  echo ("No tasks found\n");
+  fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - No tasks found.");
 }
 
 // Close Log File
