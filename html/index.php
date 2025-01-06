@@ -92,7 +92,11 @@ if ($tunnelcount > 0) {
     echo("                        None\n");
 }
 ?>                    </td>
-                </tr>                
+                </tr>
+                <tr>
+                    <td align="right"><b>Tunnel Service:</b></td>
+                    <td><?php echo(ucwords(shell_exec("systemctl is-active callmigrate-tunnel"))we); ?></td>
+                </tr>                                
             </table>
         </div>
         <div class="cm-footer">
