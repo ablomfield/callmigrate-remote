@@ -9,7 +9,7 @@ git clone https://github.com/ablomfield/callmigrate-remote.git .
 cd ~/callmigrate/setup
 sudo mysql < callmigrate-remote.sql
 mkdir /opt/callmigrate/logs/
-sudo cp 100-callmigrate.conf /etc/apache2/sites-available
+sudo ln -s /opt/callmigrate/conf/100-callmigrate.conf /etc/apache2/sites-available/100-callmigrate.conf
 sudo a2dissite 000-default
 sudo a2ensite 100-callmigrate
 sudo systemctl reload apache2
