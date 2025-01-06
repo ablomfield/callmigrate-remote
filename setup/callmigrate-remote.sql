@@ -20,6 +20,7 @@ CREATE TABLE `settings` (
   `pkid` int NOT NULL,
   `sitetitle` varchar(100) DEFAULT NULL,
   `regstatus` tinyint NOT NULL,
+  `claimstatus` tinyint NOT NULL,
   `clientid` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `clientsecret` varchar(100) DEFAULT NULL,
   `cmserver` varchar(50) NOT NULL,
@@ -30,7 +31,7 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`pkid`, `sitetitle`, `regstatus`, `cmserver`) VALUES (0, 'CallMigrate Remote', 0, 'callmigrate.click');
+INSERT INTO `settings` (`pkid`, `sitetitle`, `regstatus`, `claimstatus`, `cmserver`) VALUES (0, 'CallMigrate Remote', 0, 0, 'callmigrate.click');
 
 -- --------------------------------------------------------
 
