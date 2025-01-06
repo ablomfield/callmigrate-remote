@@ -56,9 +56,16 @@ if ($regstatus == 1) {
         <div class="cm-customer">
         </div>
         <div class="cm-body" style="width: 800px">
-            <?php
-            echo ("    <p>Registration Status: " . $regstatus . "</p>\n");
-            ?>
+            <table>
+                <tr>
+                    <td><b>Registration Status:</b></td>
+                    <td><?php echo($regstatus); ?></td>
+                </tr>
+                <tr>
+                    <td><b>IP Address:</b></td>
+                    <td><?php echo($_SERVER['SERVER_ADDR']); ?></td>
+                </tr>
+            </table>
         </div>
         <div class="cm-footer">
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php"; ?>
