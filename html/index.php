@@ -80,7 +80,18 @@ if ($claimstatus == 1) {
                 </tr>
                 <tr>
                     <td align="right"><b>Tunnels:</b></td>
-                    <td>&nbsp;</td>
+                    <td>
+<?
+$rstunnels = mysqli_query($dbconn, "SELECT * FROM tunnels") or die("Error in Selecting " . mysqli_error($dbconn));
+$tunnelcount = $rstunnels->num_rows;
+if ($tunnelcount > 0) {
+    while($tunnelrow = mysqli_fetch_assoc($rstunnels)) {
+        echo("                        " . $tunnelrow["tunnelname"] . " (" . $tunnelrow["localhost"] . ":" . $tunnelrow["localport"] . " to " . $tunnelrow["tunnelport"] . ")<br>\n");
+    }
+} else {
+    echo("                        None\n");
+}
+?>                    </td>
                 </tr>                
             </table>
         </div>
