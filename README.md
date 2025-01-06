@@ -22,7 +22,6 @@ git clone https://github.com/ablomfield/callmigrate-remote.git .
 ### Install software and configure
 ```
 cd setup
-chmod +x *.sh
 ./install.sh
 ./setup.sh
 ```
