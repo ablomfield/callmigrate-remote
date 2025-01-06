@@ -81,7 +81,7 @@ if ($claimstatus == 1) {
                 <tr>
                     <td align="right"><b>Tunnels:</b></td>
                     <td>
-<?
+<?php
 $rstunnels = mysqli_query($dbconn, "SELECT * FROM tunnels") or die("Error in Selecting " . mysqli_error($dbconn));
 $tunnelcount = $rstunnels->num_rows;
 if ($tunnelcount > 0) {
