@@ -1,1 +1,1 @@
-* * * * * php /opt/callmigrate/scripts/cron.php
+* * * * * cmadmin /usr/bin/php /opt/callmigrate/scripts/cron.php
