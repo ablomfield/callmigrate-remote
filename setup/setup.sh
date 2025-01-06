@@ -10,3 +10,4 @@ sudo systemctl daemon-reload
 sudo systemctl enable callmigrate-tunnel.service
 sudo cp cm-cron /etc/cron.d
 sudo cp cm-logrotate /etc/cron.d
+sudo service cron restart
