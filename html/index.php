@@ -72,7 +72,7 @@ if ($claimstatus == 1) {
                 </tr>                
                 <tr>
                     <td align="right"><b>IP Address:</b></td>
-                    <td><?php echo(getHostByName($_SERVER[HTTP_HOST])); ?></td>
+                    <td><?php echo(getHostByName($_SERVER['HTTP_HOST'])); ?></td>
                 </tr>
                 <tr>
                     <td align="right"><b>Client ID:</b></td>
