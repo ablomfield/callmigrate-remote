@@ -25,6 +25,7 @@ $tunnelcount = $rstunnels->num_rows;
 if ($tunnelcount > 0) {
     while($tunnelrow = mysqli_fetch_assoc($rstunnels)) {
         echo("Starting tunnel for " . $tunnelrow["tunnelname"] . "(" . $tunnelrow["localhost"] . ":" . $tunnelrow["localport"] . " to " . $tunnelrow["tunnelport"] . ")\n");
+        echo("/usr/bin/autossh -M 0 -o \"ServerAliveInterval 30\" -o \"ServerAliveCountMax 3\" -NR " . $tunnelrow["tunnelport"] . ":" . $tunnelrow["localhost"] . ":" . $tunnelrow["localport"] . " " . $cmremuser . "@" . $cmserver . " > /dev/null &");        
         exec("/usr/bin/autossh -M 0 -o \"ServerAliveInterval 30\" -o \"ServerAliveCountMax 3\" -NR " . $tunnelrow["tunnelport"] . ":" . $tunnelrow["localhost"] . ":" . $tunnelrow["localport"] . " " . $cmremuser . "@" . $cmserver . " > /dev/null &");
     }
 }
