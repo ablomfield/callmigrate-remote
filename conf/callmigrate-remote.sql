@@ -21,7 +21,7 @@ CREATE TABLE `settings` (
   `sitetitle` varchar(100) DEFAULT NULL,
   `regstatus` tinyint NOT NULL,
   `claimstatus` tinyint NOT NULL,
-  `customer` varchar(100) DEFAULT NULL,
+  `custname` varchar(100) DEFAULT NULL,
   `clientid` varchar(100) DEFAULT NULL,
   `clientsecret` varchar(100) DEFAULT NULL,
   `cmserver` varchar(50) NOT NULL,
