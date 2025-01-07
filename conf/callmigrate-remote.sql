@@ -43,6 +43,7 @@ CREATE TABLE `tunnels` (
   `pkid` int NOT NULL,
   `tunnelname` varchar(50) NOT NULL,
   `tunnelport` varchar(5) NOT NULL,
+  `localproto` varchar(25) NOT NULL,
   `localhost` varchar(50) NOT NULL,
   `localport` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
