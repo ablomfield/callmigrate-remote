@@ -1,3 +1,7 @@
+<?php
+// Retrieve Settings
+include($_SERVER['DOCUMENT_ROOT'] . "/includes/settings.php");
+?>
 <table>
     <tr>
         <td align="right"><b>Registration Status:</b></td>
