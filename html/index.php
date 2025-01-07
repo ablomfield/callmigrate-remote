@@ -43,7 +43,7 @@ if ($claimstatus == 1) {
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
     <script>
-        var timeout = setInterval(reloadtasks, 5000);
+        var timeout = setInterval(reloadstatus, 5000);
 
         function reloadstatus() {
             $('#statusholder').load('/includes/status.php');
@@ -51,7 +51,7 @@ if ($claimstatus == 1) {
     </script>
 </head>
 
-<body onload="reloadtasks()">
+<body onload="reloadstatus()">
     <div class="parent">
         <div class="cm-logo">
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/logo.php"; ?>
