@@ -1,6 +1,18 @@
 <?php
 // Retrieve Settings
 include($_SERVER['DOCUMENT_ROOT'] . "/includes/settings.php");
+
+if ($regstatus == 1) {
+    $regstatus = "Registered";
+} else {
+    $regstatus = "Unregistered";
+}
+
+if ($claimstatus == 1) {
+    $claimstatus = "Claimed";
+} else {
+    $claimstatus = "Unclaimed";
+}
 ?>
 <table>
     <tr>
