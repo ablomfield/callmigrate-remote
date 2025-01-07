@@ -8,7 +8,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `callmigrate`
 --
-CREATE DATABASE IF NOT EXISTS `callmigrate` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+CREATE DATABASE IF NOT EXISTS `callmigrate`;
 USE `callmigrate`;
 
 
@@ -21,11 +21,12 @@ CREATE TABLE `settings` (
   `sitetitle` varchar(100) DEFAULT NULL,
   `regstatus` tinyint NOT NULL,
   `claimstatus` tinyint NOT NULL,
-  `clientid` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `customer` varchar(100) DEFAULT NULL,
+  `clientid` varchar(100) DEFAULT NULL,
   `clientsecret` varchar(100) DEFAULT NULL,
   `cmserver` varchar(50) NOT NULL,
   `cmremuser` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+)
 
 --
 -- Dumping data for table `settings`
@@ -46,7 +47,7 @@ CREATE TABLE `tunnels` (
   `localproto` varchar(25) NOT NULL,
   `localhost` varchar(50) NOT NULL,
   `localport` varchar(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+)
 
 --
 -- Indexes for table `settings`
