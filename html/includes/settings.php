@@ -16,6 +16,7 @@ $rowsettings = mysqli_fetch_assoc($rssettings);
 $sitetitle = $rowsettings["sitetitle"];
 $regstatus = $rowsettings["regstatus"];
 $claimstatus = $rowsettings["claimstatus"];
+$custname = $rowsettings["custname"];
 $clientid = $rowsettings["clientid"];
 
 // Set Debug

@@ -9,7 +9,7 @@ if ($regstatus == 1) {
 }
 
 if ($claimstatus == 1) {
-    $claimstatus = "Claimed";
+    $claimstatus = "Claimed ($custname)";
 } else {
     $claimstatus = "Unclaimed";
 }
