@@ -60,7 +60,7 @@ curl_setopt(
 );
 $taskjson = curl_exec($postchtasks);
 $taskarr = json_decode($taskjson);
-if ($claimstatus == 0 && $taskarr->claimstatus == 1) {
+if ($taskarr->status == 200 && $claimstatus == 0 && $taskarr->claimstatus == 1) {
   $custname = $taskarr->custname;
   $dbconn->query("UPDATE settings SET claimstatus = 1, custname = '$custname';");
 }
