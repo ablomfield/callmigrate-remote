@@ -13,11 +13,13 @@ if ($dbconn->connect_error) {
 }
 $rssettings = mysqli_query($dbconn, "SELECT * FROM settings") or die("Error in Selecting " . mysqli_error($dbconn));
 $rowsettings = mysqli_fetch_assoc($rssettings);
+$cmserver = $rowsettings["cmserver"];
+$clientid = $rowsettings["clientid"];
+$clientsecret = $rowsettings["clientsecret"];
 $sitetitle = $rowsettings["sitetitle"];
 $regstatus = $rowsettings["regstatus"];
 $claimstatus = $rowsettings["claimstatus"];
 $custname = $rowsettings["custname"];
-$clientid = $rowsettings["clientid"];
 
 // Set Debug
 if (isset($_SESSION["enabledebug"])) {
