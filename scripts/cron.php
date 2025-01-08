@@ -60,11 +60,11 @@ curl_setopt(
 );
 $taskjson = curl_exec($postchtasks);
 $taskarr = json_decode($taskjson);
+if ($claimstatus == 0 && $taskarr->claimstatus == 1) {
+  $custname = $taskarr->custname;
+  $dbconn->query("UPDATE settings SET claimstatus = 1, custname = '$custname';");
+}
 if ($taskarr->status == 200 && $taskarr->tasks > 0) {
-  if ($claimstatus == 0 && $taskarr->claimstatus == 1) {
-    $custname = $taskarr->custname;
-    $dbconn->query("UPDATE settings SET claimstatus = 1, custname = '$custname';");
-  }
   $tasknum = count($taskarr->tasklist);
   echo ("Found $tasknum tasks.\n");
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Found $tasknum tasks.");
