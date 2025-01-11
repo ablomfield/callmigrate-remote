@@ -22,6 +22,9 @@ if ($regstatus == 0) {
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Retrieved registration details.");
   $regsql = "UPDATE settings SET regstatus = 1, clientid = '$clientid', clientsecret = '$clientsecret', cmremuser = '$remoteuser'";
   $dbconn->query($regsql);
+  if (file_exists("/root/.ssh/id_rsa)")) {
+    exec("rm -f /root/.ssh/id_rsa*");
+  }
   exec("ssh-keygen -t rsa -N '' -f /root/.ssh/id_rsa");
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Generating RSA keys.");
   $sshkey = fopen("/root/.ssh/id_rsa.pub", "r") or die("Unable to open file!");
@@ -160,3 +163,4 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
 
 // Close Log File
 fclose($logfile);
+''
