@@ -11,7 +11,10 @@ if (isset($_REQUEST["action"])) {
     $action = "";
 }
 
+$statusmsg = "";
+
 if ($action == "runcron") {
+    $statusmsg = "Running cron...<br>\n";
     exec("/usr/bin/php /opt/callmigrate/scripts/cron.php");
 }
 
@@ -74,11 +77,13 @@ if ($claimstatus == 1) {
         <div class="cm-body" style="width: 800px">
             <div id="statusholder">
             </div>
+            <form method="post">
+                <input type="hidden" name="action" value="runcron">
+                <input type="submit" value="cron" class="button">
+            </form>
+            <br>
+            <?php echo($statusmsg); ?>
         </div>
-        <form method="post">
-            <input type="hidden" name="action" value="runcron">
-            <input type="submit" value="cron">
-        </form>
         <div class="cm-footer">
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php"; ?>
         </div>
