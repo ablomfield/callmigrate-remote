@@ -25,7 +25,7 @@ if ($regstatus == 0) {
   exec("ssh-keygen -t rsa -N '' -f /root/.ssh/id_rsa");
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Generating RSA keys.");
   $sshkey = fopen("/root/.ssh/id_rsa.pub", "r") or die("Unable to open file!");
-  $pubkey = fread($sshkey,filesize("/root/.ssh/id_rsa.pub"));
+  $pubkey = fread($sshkey, filesize("/root/.ssh/id_rsa.pub"));
   $keyurl = "https://" . $cmserver . "/remote/register/sshkey/";
   $postchkey = curl_init($keyurl);
   curl_setopt($postchkey, CURLOPT_CUSTOMREQUEST, "POST");
@@ -100,17 +100,17 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
       );
       $tunneljson = curl_exec($postchtunnels);
       //print_r($tunneljson);
-      echo("Deleting existing tunnels\n");
+      echo ("Deleting existing tunnels\n");
       fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Deleting existing tunnels.");
       $tunnelarr = json_decode($tunneljson);
       $tunnelcount = count($tunnelarr->tunnellist);
       fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Syncronizing $tunnelcount tunnels.");
-      echo("Syncronizing $tunnelcount tunnels\n");
-      mysqli_query($dbconn,"DELETE FROM tunnels");
+      echo ("Syncronizing $tunnelcount tunnels\n");
+      mysqli_query($dbconn, "DELETE FROM tunnels");
       for ($y = 0; $y <= $tunnelcount - 1; $y++) {
         fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Adding " . $tunnelarr->tunnellist[$y]->application . " tunnel. " . $tunnelarr->tunnellist[$y]->remotehost . ":" . $tunnelarr->tunnellist[$y]->remoteport . " to " . $tunnelarr->tunnellist[$y]->tunnelport . ".");
-        echo("Adding " . $tunnelarr->tunnellist[$y]->application . " tunnel. " . $tunnelarr->tunnellist[$y]->remotehost . ":" . $tunnelarr->tunnellist[$y]->remoteport . " to " . $tunnelarr->tunnellist[$y]->tunnelport . "\n");
-        mysqli_query($dbconn,"INSERT INTO tunnels (`tunnelname`, `tunnelport`, `localproto`, `localhost`, `localport`) VALUES ('" . $tunnelarr->tunnellist[$y]->application . "', '" . $tunnelarr->tunnellist[$y]->tunnelport . "', '" . $tunnelarr->tunnellist[$y]->remoteproto . "', '" . $tunnelarr->tunnellist[$y]->remotehost . "', '" . $tunnelarr->tunnellist[$y]->remoteport . "')");
+        echo ("Adding " . $tunnelarr->tunnellist[$y]->application . " tunnel. " . $tunnelarr->tunnellist[$y]->remotehost . ":" . $tunnelarr->tunnellist[$y]->remoteport . " to " . $tunnelarr->tunnellist[$y]->tunnelport . "\n");
+        mysqli_query($dbconn, "INSERT INTO tunnels (`tunnelname`, `tunnelport`, `localproto`, `localhost`, `localport`) VALUES ('" . $tunnelarr->tunnellist[$y]->application . "', '" . $tunnelarr->tunnellist[$y]->tunnelport . "', '" . $tunnelarr->tunnellist[$y]->remoteproto . "', '" . $tunnelarr->tunnellist[$y]->remotehost . "', '" . $tunnelarr->tunnellist[$y]->remoteport . "')");
       }
       fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Restarting tunnel service.");
       exec('service callmigrate-tunnel restart');
@@ -130,7 +130,7 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
       $compjson = curl_exec($postchcomp);
     } elseif ($taskarr->tasklist[$x]->action == "RESTARTTUNNELS") {
       fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Executing tunnel restart.");
-      echo("Restarting tunnel service\n");
+      echo ("Restarting tunnel service\n");
       exec('service callmigrate-tunnel restart');
       $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
       $postchcomp = curl_init($compurl);
@@ -148,7 +148,7 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
       $compjson = curl_exec($postchcomp);
     } elseif ($taskarr->tasklist[$x]->action == "RELEASE") {
       fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Unregistering remote agent.");
-      echo("Unregistering remote agent\n");
+      echo ("Unregistering remote agent\n");
       $dbconn->query("UPDATE `settings` SET claimstatus = 0, custname='', clientid = '', clientsecret = '', cmremuser = ''");
       $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
       $postchcomp = curl_init($compurl);
@@ -166,6 +166,9 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
       $compjson = curl_exec($postchcomp);
     }
   }
+} elseif ($taskarr->status == 403) {
+  $regsql = "UPDATE settings SET regstatus = 0, claimstatus = 0, custname = '', clientid = '', clientsecret = '', cmremuser = ''";
+  $dbconn->query($regsql);
 } else {
   echo ("No tasks found\n");
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - No tasks found.");
