@@ -163,4 +163,3 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
 
 // Close Log File
 fclose($logfile);
-''
