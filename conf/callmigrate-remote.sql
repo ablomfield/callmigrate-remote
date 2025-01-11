@@ -13,7 +13,7 @@ USE `callmigrate`;
 
 
 --
--- Table structure for table `settings`
+-- Table `settings`
 --
 
 CREATE TABLE `settings` (
@@ -24,20 +24,15 @@ CREATE TABLE `settings` (
   `custname` varchar(100) DEFAULT NULL,
   `clientid` varchar(100) DEFAULT NULL,
   `clientsecret` varchar(100) DEFAULT NULL,
-  `cmserver` varchar(50) NOT NULL,
-  `cmremuser` varchar(25) NOT NULL
-)
+  `cmserver` varchar(50) DEFAULT NULL,
+  `cmremuser` varchar(25) DEFAULT NULL
+);
+
+INSERT INTO `settings` (`pkid`, `sitetitle`, `regstatus`, `claimstatus`, `
+cmserver`) VALUES (0, 'CallMigrate Remote', 0, 0, 'callmigrate.click');
 
 --
--- Dumping data for table `settings`
---
-
-INSERT INTO `settings` (`pkid`, `sitetitle`, `regstatus`, `claimstatus`, `cmserver`) VALUES (0, 'CallMigrate Remote', 0, 0, 'callmigrate.click');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tunnels`
+-- Table `tunnels`
 --
 
 CREATE TABLE `tunnels` (
@@ -47,7 +42,7 @@ CREATE TABLE `tunnels` (
   `localproto` varchar(25) NOT NULL,
   `localhost` varchar(50) NOT NULL,
   `localport` varchar(5) NOT NULL
-)
+);
 
 --
 -- Indexes for table `settings`
@@ -69,7 +64,7 @@ ALTER TABLE `tunnels`
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `pkid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `pkid` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tunnels`
@@ -82,5 +77,6 @@ COMMIT;
 -- ADD cmdbuser and GRANT 
 --
 CREATE USER 'cmdbuser'@'localhost' IDENTIFIED BY 'HPwvw_8I5MzxBLZk';
-GRANT ALL PRIVILEGES ON callmigrate.* TO 'cmdbuser'@'localhost' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON callmigrate.* TO 'cmdbuser'@'localhost' WITH GRANT
+ OPTION;
 FLUSH PRIVILEGES;

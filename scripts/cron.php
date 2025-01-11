@@ -22,12 +22,10 @@ if ($regstatus == 0) {
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Retrieved registration details.");
   $regsql = "UPDATE settings SET regstatus = 1, clientid = '$clientid', clientsecret = '$clientsecret', cmremuser = '$remoteuser'";
   $dbconn->query($regsql);
-  exec("ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa");
+  exec("ssh-keygen -t rsa -N '' -f /root/.ssh/id_rsa");
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Generating RSA keys.");
-  exec("sudo cp ~/.ssh/id_rsa* /root/.ssh");
-  fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Copying keys to root.");
-  $sshkey = fopen("/home/cmadmin/.ssh/id_rsa.pub", "r") or die("Unable to open file!");
-  $pubkey = fread($sshkey,filesize("/home/cmadmin/.ssh/id_rsa.pub"));
+  $sshkey = fopen("/root/.ssh/id_rsa.pub", "r") or die("Unable to open file!");
+  $pubkey = fread($sshkey,filesize("/root/.ssh/id_rsa.pub"));
   $keyurl = "https://" . $cmserver . "/remote/register/sshkey/";
   $postchkey = curl_init($keyurl);
   curl_setopt($postchkey, CURLOPT_CUSTOMREQUEST, "POST");
@@ -115,7 +113,7 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
         mysqli_query($dbconn,"INSERT INTO tunnels (`tunnelname`, `tunnelport`, `localproto`, `localhost`, `localport`) VALUES ('" . $tunnelarr->tunnellist[$y]->application . "', '" . $tunnelarr->tunnellist[$y]->tunnelport . "', '" . $tunnelarr->tunnellist[$y]->remoteproto . "', '" . $tunnelarr->tunnellist[$y]->remotehost . "', '" . $tunnelarr->tunnellist[$y]->remoteport . "')");
       }
       fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Restarting tunnel service.");
-      exec('sudo service callmigrate-tunnel restart');
+      exec('service callmigrate-tunnel restart');
       $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
       $postchcomp = curl_init($compurl);
       curl_setopt($postchcomp, CURLOPT_CUSTOMREQUEST, "POST");
@@ -133,7 +131,25 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
     } elseif ($taskarr->tasklist[$x]->action == "RESTARTTUNNELS") {
       fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Executing tunnel restart.");
       echo("Restarting tunnel service\n");
-      exec('sudo service callmigrate-tunnel restart');
+      exec('service callmigrate-tunnel restart');
+      $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
+      $postchcomp = curl_init($compurl);
+      curl_setopt($postchcomp, CURLOPT_CUSTOMREQUEST, "POST");
+      curl_setopt($postchcomp, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt(
+        $postchcomp,
+        CURLOPT_POSTFIELDS,
+        http_build_query(array(
+          'clientid' => $clientid,
+          'clientsecret' => $clientsecret,
+          'taskid' => $taskarr->tasklist[$x]->id
+        ))
+      );
+      $compjson = curl_exec($postchcomp);
+    } elseif ($taskarr->tasklist[$x]->action == "RELEASE") {
+      fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Unregistering remote agent.");
+      echo("Unregistering remote agent\n");
+      $dbconn->query("UPDATE `settings` SET claimstatus = 0, custname='', clientid = '', clientsecret = '', cmremuser = ''");
       $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
       $postchcomp = curl_init($compurl);
       curl_setopt($postchcomp, CURLOPT_CUSTOMREQUEST, "POST");

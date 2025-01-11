@@ -1,1 +1,0 @@
-* 0 * * * cmadmin /usr/sbin/logrotate /opt/callmigrate/conf/logrotate.conf --state /opt/callmigrate/logrotate-state
