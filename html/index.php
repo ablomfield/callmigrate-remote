@@ -14,8 +14,9 @@ if (isset($_REQUEST["action"])) {
 $statusmsg = "";
 
 if ($action == "runcron") {
-    $statusmsg = "Running cron...<br>\n";
-    exec("/usr/bin/php /opt/callmigrate/scripts/cron.php");
+    $f = fopen('/opt/callmigrate/cronwatch/cron.now', 'w');
+    fwrite($f, time());
+    fclose($f);
 }
 
 if ($regstatus == 1) {
@@ -82,7 +83,7 @@ if ($claimstatus == 1) {
                 <input type="submit" value="cron" class="button">
             </form>
             <br>
-            <?php echo($statusmsg); ?>
+            <?php echo ($statusmsg); ?>
         </div>
         <div class="cm-footer">
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php"; ?>
