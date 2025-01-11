@@ -28,8 +28,7 @@ CREATE TABLE `settings` (
   `cmremuser` varchar(25) DEFAULT NULL
 );
 
-INSERT INTO `settings` (`pkid`, `sitetitle`, `regstatus`, `claimstatus`, `
-cmserver`) VALUES (0, 'CallMigrate Remote', 0, 0, 'callmigrate.click');
+INSERT INTO `settings` (`pkid`, `sitetitle`, `regstatus`, `claimstatus`, `cmserver`) VALUES (0, 'CallMigrate Remote', 0, 0, 'callmigrate.click');
 
 --
 -- Table `tunnels`
