@@ -11,6 +11,10 @@ if (isset($_REQUEST["action"])) {
     $action = "";
 }
 
+if ($action == "runcron") {
+    exec("/usr/bin/php /opt/callmigrate/scripts/cron.php");
+}
+
 if ($regstatus == 1) {
     $regstatus = "Registered";
 } else {
@@ -71,6 +75,10 @@ if ($claimstatus == 1) {
             <div id="statusholder">
             </div>
         </div>
+        <form method="post">
+            <input type="hidden" name="action" value="runcron">
+            <input type="submit" value="cron">
+        </form>
         <div class="cm-footer">
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php"; ?>
         </div>
