@@ -146,29 +146,13 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
         ))
       );
       $compjson = curl_exec($postchcomp);
-    } elseif ($taskarr->tasklist[$x]->action == "RELEASE") {
-      fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Unregistering remote agent.");
-      echo ("Unregistering remote agent\n");
-      $dbconn->query("UPDATE `settings` SET claimstatus = 0, custname='', clientid = '', clientsecret = '', cmremuser = ''");
-      $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
-      $postchcomp = curl_init($compurl);
-      curl_setopt($postchcomp, CURLOPT_CUSTOMREQUEST, "POST");
-      curl_setopt($postchcomp, CURLOPT_RETURNTRANSFER, true);
-      curl_setopt(
-        $postchcomp,
-        CURLOPT_POSTFIELDS,
-        http_build_query(array(
-          'clientid' => $clientid,
-          'clientsecret' => $clientsecret,
-          'taskid' => $taskarr->tasklist[$x]->id
-        ))
-      );
-      $compjson = curl_exec($postchcomp);
     }
   }
 } elseif ($taskarr->status == 403) {
   $regsql = "UPDATE settings SET regstatus = 0, claimstatus = 0, custname = '', clientid = '', clientsecret = '', cmremuser = ''";
   $dbconn->query($regsql);
+  echo ("Unregistering remote\n");
+  fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Unregistering remote.");
 } else {
   echo ("No tasks found\n");
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - No tasks found.");
