@@ -83,19 +83,19 @@ if ($claimstatus == 1) {
                     <form method="post">
                     <input type="hidden" name="action" value="runcron">
                     <td>
-                        <input type="submit" value="cron" class="button">
+                        <input type="submit" value="Run Cron" class="button">
                     </td>
                     </form>
                     <form method="post">
                     <input type="hidden" name="action" value="synctunnels">
                     <td>
-                        <input type="submit" value="Sync" class="button">
+                        <input type="submit" value="Sync Tunnels" class="button">
                     </td>
                     </form>
                     <form method="post">
                     <input type="hidden" name="action" value="restartservice">
                     <td>
-                        <input type="submit" value="Restart" class="button">
+                        <input type="submit" value="Restart Service" class="button">
                     </td>
                     </form>
                 </tr>
