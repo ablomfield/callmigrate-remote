@@ -107,7 +107,7 @@ if ($claimstatus == 1) {
                     <form method="post">
                     <input type="hidden" name="action" value="restartservice">
                     <td>
-                        <input type="submit" value="Restart Service" class="button">
+                        <input type="submit" value="Restart Services" class="button">
                     </td>
                     </form>
                 </tr>
