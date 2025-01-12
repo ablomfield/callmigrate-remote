@@ -40,7 +40,7 @@ if ($claimstatus == 1) {
             if ($tunnelcount > 0) {
                 while ($tunnelrow = mysqli_fetch_assoc($rstunnels)) {
                     if ($tunnelrow["localhost"] == "localhost") {
-                        $localhost = shell_exec("hostname -I");
+                        $localhost = trim(shell_exec("hostname -I"));
                     } else {
                         $localhost = $tunnelrow["localhost"];
                     }
