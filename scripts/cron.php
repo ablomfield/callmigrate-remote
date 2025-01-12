@@ -6,7 +6,6 @@ include("/opt/callmigrate/html/includes/settings.php");
 $logfile = fopen("/opt/callmigrate/logs/callmigrate.log", "a") or die("Unable to open file!");
 
 // Check Registration
-echo ("Checking Registration\n");
 if ($regstatus == 0) {
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - CallMigrate Remote not registered. Starting registration process.");
   $regurl = "https://" . $cmserver . "/remote/register/";
