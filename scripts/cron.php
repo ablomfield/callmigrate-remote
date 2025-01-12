@@ -205,11 +205,11 @@ if ($taskcount > 0) {
       }
       mysqli_query($dbconn, "DELETE FROM `tasks` WHERE `pkid` = " . $rowtasks["pkid"]);
     } elseif ($rowtasks["taskaction"] == "RESTARTSERVICES") {
-      fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Executing tunnel restart.");
+      fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Restarting services.");
+      mysqli_query($dbconn, "DELETE FROM `tasks` WHERE `pkid` = " . $rowtasks["pkid"]);
       echo ("Restarting services\n");
       exec('service callmigrate-tunnel restart');
       exec('service callmigrate-cronwatch restart');
-      mysqli_query($dbconn, "DELETE FROM `tasks` WHERE `pkid` = " . $rowtasks["pkid"]);
     }
   }
 }
