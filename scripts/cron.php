@@ -46,7 +46,6 @@ if ($regstatus == 0) {
 }
 
 // Check Tasks
-echo ("Checking Tasks\n");
 $taskurl = "https://" . $cmserver . "/remote/tasks/list/";
 $postchtasks = curl_init($taskurl);
 curl_setopt($postchtasks, CURLOPT_CUSTOMREQUEST, "POST");
@@ -160,6 +159,9 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
   echo ("No tasks found\n");
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - No tasks found.");
 }
+
+// Checking Local Tasks
+
 
 // Close Log File
 fclose($logfile);

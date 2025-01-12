@@ -9,7 +9,7 @@ while true; do
   fi
 
   if [ "$CURRENT_HASH" != "$LAST_HASH" ]; then
-    echo "Directory changed at $(date)"
+    /bin/php /opt/callmigrate/scripts/cron.php
     # Do something here when a change is detected, e.g., run a command
     LAST_HASH="$CURRENT_HASH"
   fi
