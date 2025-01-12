@@ -39,7 +39,7 @@ if ($claimstatus == 1) {
             $tunnelcount = $rstunnels->num_rows;
             if ($tunnelcount > 0) {
                 while ($tunnelrow = mysqli_fetch_assoc($rstunnels)) {
-                    echo ("                        <a href=\"" . $tunnelrow["localproto"] . "://" . $tunnelrow["localhost"] . ":" . $tunnelrow["localport"] . "\" target=\"_blank\">" . $tunnelrow["tunnelname"] . "</a> (" . $tunnelrow["tunnelport"] . ")<br>\n");
+                    echo ("                        <a href=\"" . $tunnelrow["localproto"] . "://" . $tunnelrow["localhost"] . ":" . $tunnelrow["localport"] . "\" target=\"_blank\">" . $tunnelrow["tunnelname"] . "</a><br>\n");
                 }
             } else {
                 echo ("                        None\n");
