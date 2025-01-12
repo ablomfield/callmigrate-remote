@@ -50,4 +50,8 @@ if ($claimstatus == 1) {
         <td align="right"><b>Tunnel Service:</b></td>
         <td><?php echo (ucwords(shell_exec("systemctl is-active callmigrate-tunnel"))); ?></td>
     </tr>
+    <tr>
+        <td align="right"><b>CronWatch Service:</b></td>
+        <td><?php echo (ucwords(shell_exec("systemctl is-active callmigrate-cronwatch"))); ?></td>
+    </tr>
 </table>
