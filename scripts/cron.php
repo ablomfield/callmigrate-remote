@@ -100,21 +100,20 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
         ))
       );
       $tunneljson = curl_exec($postchtunnels);
-      //print_r($tunneljson);
-      echo ("Deleting existing tunnels\n");
-      fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Deleting existing tunnels.");
       $tunnelarr = json_decode($tunneljson);
-      $tunnelcount = count($tunnelarr->tunnellist);
-      fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Syncronizing $tunnelcount tunnels.");
-      echo ("Syncronizing $tunnelcount tunnels\n");
-      mysqli_query($dbconn, "DELETE FROM tunnels");
-      for ($y = 0; $y <= $tunnelcount - 1; $y++) {
-        fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Adding " . $tunnelarr->tunnellist[$y]->application . " tunnel. " . $tunnelarr->tunnellist[$y]->remotehost . ":" . $tunnelarr->tunnellist[$y]->remoteport . " to " . $tunnelarr->tunnellist[$y]->tunnelport . ".");
-        echo ("Adding " . $tunnelarr->tunnellist[$y]->application . " tunnel. " . $tunnelarr->tunnellist[$y]->remotehost . ":" . $tunnelarr->tunnellist[$y]->remoteport . " to " . $tunnelarr->tunnellist[$y]->tunnelport . "\n");
-        mysqli_query($dbconn, "INSERT INTO tunnels (`tunnelname`, `tunnelport`, `localproto`, `localhost`, `localport`) VALUES ('" . $tunnelarr->tunnellist[$y]->application . "', '" . $tunnelarr->tunnellist[$y]->tunnelport . "', '" . $tunnelarr->tunnellist[$y]->remoteproto . "', '" . $tunnelarr->tunnellist[$y]->remotehost . "', '" . $tunnelarr->tunnellist[$y]->remoteport . "')");
+      if ($tunnelarr->tunnels > 0) {
+        echo ("Deleting existing tunnels\n");
+        fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Deleting existing tunnels.");
+        $tunnelcount = count($tunnelarr->tunnellist);
+        fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Syncronizing $tunnelcount tunnels.");
+        echo ("Syncronizing $tunnelcount tunnels\n");
+        mysqli_query($dbconn, "DELETE FROM tunnels");
+        for ($y = 0; $y <= $tunnelcount - 1; $y++) {
+          fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Adding " . $tunnelarr->tunnellist[$y]->application . " tunnel. " . $tunnelarr->tunnellist[$y]->remotehost . ":" . $tunnelarr->tunnellist[$y]->remoteport . " to " . $tunnelarr->tunnellist[$y]->tunnelport . ".");
+          echo ("Adding " . $tunnelarr->tunnellist[$y]->application . " tunnel. " . $tunnelarr->tunnellist[$y]->remotehost . ":" . $tunnelarr->tunnellist[$y]->remoteport . " to " . $tunnelarr->tunnellist[$y]->tunnelport . "\n");
+          mysqli_query($dbconn, "INSERT INTO tunnels (`tunnelname`, `tunnelport`, `localproto`, `localhost`, `localport`) VALUES ('" . $tunnelarr->tunnellist[$y]->application . "', '" . $tunnelarr->tunnellist[$y]->tunnelport . "', '" . $tunnelarr->tunnellist[$y]->remoteproto . "', '" . $tunnelarr->tunnellist[$y]->remotehost . "', '" . $tunnelarr->tunnellist[$y]->remoteport . "')");
+        }
       }
-      fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Restarting tunnel service.");
-      exec('service callmigrate-tunnel restart');
       $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
       $postchcomp = curl_init($compurl);
       curl_setopt($postchcomp, CURLOPT_CUSTOMREQUEST, "POST");
@@ -182,7 +181,6 @@ if ($taskcount > 0) {
       );
       $tunneljson = curl_exec($postchtunnels);
       $tunnelarr = json_decode($tunneljson);
-      print_r($tunneljson);
       if ($tunnelarr->tunnels > 0) {
         echo ("Deleting existing tunnels\n");
         fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Deleting existing tunnels.");
@@ -200,14 +198,12 @@ if ($taskcount > 0) {
       } else {
         echo ("No tunnels to sync!\n");
       }
-      echo("DELETE FROM `tasks` WHERE `pkid` = " . $rowtasks["pkid"]);
-      fwrite($logfile,"DELETE FROM `tasks` WHERE `pkid` = " . $rowtasks["pkid"]);
-      mysqli_query($dbconn,"DELETE FROM `tasks` WHERE `pkid` = " . $rowtasks["pkid"]);
+      mysqli_query($dbconn, "DELETE FROM `tasks` WHERE `pkid` = " . $rowtasks["pkid"]);
     } elseif ($rowtasks["taskaction"] == "RESTARTTUNNELS") {
       fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Executing tunnel restart.");
       echo ("Restarting tunnel service\n");
       exec('service callmigrate-tunnel restart');
-      mysqli_query($dbconn,"DELETE FROM `tasks` WHERE `pkid` = " . $rowtasks["pkid"]);
+      mysqli_query($dbconn, "DELETE FROM `tasks` WHERE `pkid` = " . $rowtasks["pkid"]);
     }
   }
 }
