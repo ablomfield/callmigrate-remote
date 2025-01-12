@@ -19,10 +19,16 @@ if ($action == "runcron") {
 
 if ($action == "synctunnels") {
     mysqli_query($dbconn,"INSERT INTO `tasks` (`taskaction`) VALUES('SYNCTUNNELS')");
+    $f = fopen('/opt/callmigrate/cronwatch/cron.now', 'w');
+    fwrite($f, time());
+    fclose($f);
 }
 
 if ($action == "restartservice") {
     mysqli_query($dbconn,"INSERT INTO `tasks` (`taskaction`) VALUES('RESTARTTUNNELS')");
+    $f = fopen('/opt/callmigrate/cronwatch/cron.now', 'w');
+    fwrite($f, time());
+    fclose($f);
 }
 
 if ($regstatus == 1) {
