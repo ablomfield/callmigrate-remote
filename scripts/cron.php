@@ -4,7 +4,6 @@ include("/opt/callmigrate/html/includes/settings.php");
 
 // Open Log File
 $logfile = fopen("/opt/callmigrate/logs/callmigrate.log", "a") or die("Unable to open file!");
-fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Checking for tasks.");
 
 // Check Registration
 echo ("Checking Registration\n");
@@ -46,6 +45,7 @@ if ($regstatus == 0) {
 }
 
 // Check Tasks
+fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Checking for remote tasks.");
 $taskurl = "https://" . $cmserver . "/remote/tasks/list/";
 $postchtasks = curl_init($taskurl);
 curl_setopt($postchtasks, CURLOPT_CUSTOMREQUEST, "POST");
@@ -157,11 +157,19 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Unregistering remote.");
 } else {
   echo ("No tasks found\n");
-  fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - No tasks found.");
+  fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Found 0 tasks.");
 }
 
 // Checking Local Tasks
+fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Checking for local tasks.");
+$rstasks = mysqli_query($dbconn, "SELECT * FROM tasks") or die("Error in Selecting " . mysqli_error($dbconn));
+$taskcount = $rstasks->num_rows;
+fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Found $taskcount tasks.");
+if ($taskcount > 0) {
+  while ($rowtasks = mysqli_fetch_assoc($rstasks)) {
 
+  }
+}
 
 // Close Log File
 fclose($logfile);
