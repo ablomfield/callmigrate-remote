@@ -5,7 +5,7 @@ FILE_TO_WATCH="/opt/callmigrate/cronwatch/cron.now"
 #!/bin/bash
 
 # Your service logic here
-function run_service {
+function log_watch {
   CURRENT_HASH=$(sha256sum $FILE_TO_WATCH | awk '{print $1}')
   if [ -z "$LAST_HASH" ]; then
     LAST_HASH="$CURRENT_HASH"
@@ -20,8 +20,5 @@ function run_service {
 }
 
 while true; do
-  run_service
-done
-
-while true; do
+  log_watch
 done
