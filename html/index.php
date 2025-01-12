@@ -78,18 +78,32 @@ if ($claimstatus == 1) {
         <div class="cm-body" style="width: 800px">
             <div id="statusholder">
             </div>
-            <form method="post">
-                <input type="hidden" name="action" value="runcron">
-                <input type="submit" value="cron" class="button">
-            </form>
-            <form method="post">
-                <input type="hidden" name="action" value="synctunnels">
-                <input type="submit" value="Sync Tunnels" class="button">
-            </form>
+            <table>
+                <tr>
+                    <form method="post">
+                    <input type="hidden" name="action" value="runcron">
+                    <td>
+                        <input type="submit" value="cron" class="button">
+                    </td>
+                    </form>
+                    <form method="post">
+                    <input type="hidden" name="action" value="synctunnels">
+                    <td>
+                        <input type="submit" value="Sync" class="button">
+                    </td>
+                    </form>
+                    <form method="post">
+                    <input type="hidden" name="action" value="restartservice">
+                    <td>
+                        <input type="submit" value="Restart" class="button">
+                    </td>
+                    </form>
+                </tr>
+            </table>
             <form method="post">
                 <input type="hidden" name="action" value="restarttunnels">
                 <input type="submit" value="Restart Service" class="button">
-            </form>            
+            </form>
             <br>
             <?php echo ($statusmsg); ?>
         </div>
