@@ -95,7 +95,7 @@ if ($claimstatus == 1) {
                     <form method="post">
                     <input type="hidden" name="action" value="runcron">
                     <td>
-                        <input type="submit" value="Run Cron" class="button">
+                        <input type="submit" value="Run cron" class="button">
                     </td>
                     </form>
                     <form method="post">
