@@ -196,6 +196,7 @@ if ($taskcount > 0) {
       }
       fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Restarting tunnel service.");
       exec('service callmigrate-tunnel restart');
+      fwrite($logfile,"DELETE FROM `tasks` WHERE `pkid` = " . $rowtasks["pkid"]);
       mysqli_query($dbconn,"DELETE FROM `tasks` WHERE `pkid` = " . $rowtasks["pkid"]);
     } elseif ($rowtasks["taskaction"] == "RESTARTTUNNELS") {
       fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Executing tunnel restart.");
