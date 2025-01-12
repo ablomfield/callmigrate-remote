@@ -154,7 +154,6 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
   echo ("Unregistering remote\n");
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Unregistering remote.");
 } else {
-  echo ("No tasks found\n");
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Found 0 tasks.");
 }
 
