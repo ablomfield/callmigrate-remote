@@ -155,6 +155,8 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
   $regsql = "UPDATE settings SET regstatus = 0, claimstatus = 0, custname = '', clientid = '', clientsecret = '', cmremuser = ''";
   $dbconn->query($regsql);
   echo ("Unregistering remote\n");
+  $tunnelsql = "DELETE FROM tunnels";
+  $dbconn->query($tunnelsql);
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Unregistering remote.");
 } else {
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Found 0 tasks.");
