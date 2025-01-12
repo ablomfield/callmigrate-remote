@@ -28,12 +28,6 @@ CREATE TABLE `settings` (
   `cmremuser` varchar(25) DEFAULT NULL
 );
 
-INSERT INTO `settings` (`pkid`, `sitetitle`, `regstatus`, `claimstatus`, `cmserver`) VALUES (0, 'CallMigrate Remote', 0, 0, 'callmigrate.click');
-
---
--- Table `tunnels`
---
-
 CREATE TABLE `tunnels` (
   `pkid` int NOT NULL,
   `tunnelname` varchar(50) NOT NULL,
@@ -43,33 +37,48 @@ CREATE TABLE `tunnels` (
   `localport` varchar(5) NOT NULL
 );
 
+CREATE TABLE `tasks` (
+  `pkid` int NOT NULL,
+  `taskcreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `taskaction` varchar(25) NOT NULL,
+  `taskdetails` varchar(1000) NOT NULL
+);
+
 --
--- Indexes for table `settings`
+-- Insert Data
+--
+
+INSERT INTO `settings` (`pkid`, `sitetitle`, `regstatus`, `claimstatus`, `cmserver`) VALUES (0, 'CallMigrate Remote', 0, 0, 'callmigrate.click');
+
+--
+-- Set Table Indexes
 --
 ALTER TABLE `settings`
   ADD PRIMARY KEY (`pkid`);
 
---
--- Indexes for table `tunnels`
---
 ALTER TABLE `tunnels`
   ADD PRIMARY KEY (`pkid`);
 
---
--- AUTO_INCREMENT for dumped tables
---
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`pkid`);
 
 --
--- AUTO_INCREMENT for table `settings`
+-- Set table AutoIncrement
 --
+
 ALTER TABLE `settings`
   MODIFY `pkid` int NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `tunnels`
---
 ALTER TABLE `tunnels`
   MODIFY `pkid` int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `tasks`
+  MODIFY `pkid` int NOT NULL AUTO_INCREMENT;
+
+--
+-- Commit Transaction
+--
+
 COMMIT;
 
 --
