@@ -82,6 +82,14 @@ if ($claimstatus == 1) {
                 <input type="hidden" name="action" value="runcron">
                 <input type="submit" value="cron" class="button">
             </form>
+            <form method="post">
+                <input type="hidden" name="action" value="synctunnels">
+                <input type="submit" value="Sync Tunnels" class="button">
+            </form>
+            <form method="post">
+                <input type="hidden" name="action" value="restarttunnels">
+                <input type="submit" value="Restart Service" class="button">
+            </form>            
             <br>
             <?php echo ($statusmsg); ?>
         </div>
