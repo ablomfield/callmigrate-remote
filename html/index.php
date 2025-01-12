@@ -11,12 +11,18 @@ if (isset($_REQUEST["action"])) {
     $action = "";
 }
 
-$statusmsg = "";
-
 if ($action == "runcron") {
     $f = fopen('/opt/callmigrate/cronwatch/cron.now', 'w');
     fwrite($f, time());
     fclose($f);
+}
+
+if ($action == "synctunnels") {
+    mysqli_query($dbconn,"INSERT INTO `tasks` (`taskaction`) VALUES('SYNCTUNNELS')");
+}
+
+if ($action == "restartservice") {
+    mysqli_query($dbconn,"INSERT INTO `tasks` (`taskaction`) VALUES('RESTARTTUNNELS')");
 }
 
 if ($regstatus == 1) {
@@ -100,12 +106,6 @@ if ($claimstatus == 1) {
                     </form>
                 </tr>
             </table>
-            <form method="post">
-                <input type="hidden" name="action" value="restarttunnels">
-                <input type="submit" value="Restart Service" class="button">
-            </form>
-            <br>
-            <?php echo ($statusmsg); ?>
         </div>
         <div class="cm-footer">
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php"; ?>
