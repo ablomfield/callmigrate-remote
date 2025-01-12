@@ -117,6 +117,8 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
         fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - No tunnels to sync.");
         echo ("No tunnels to sync!\n");
       }
+      fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Restarting tunnel service.");
+      exec('service callmigrate-tunnel restart');
       $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
       $postchcomp = curl_init($compurl);
       curl_setopt($postchcomp, CURLOPT_CUSTOMREQUEST, "POST");
