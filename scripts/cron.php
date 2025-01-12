@@ -181,7 +181,7 @@ if ($taskcount > 0) {
         ))
       );
       $tunneljson = curl_exec($postchtunnels);
-      //print_r($tunneljson);
+      print_r($tunneljson);
       echo ("Deleting existing tunnels\n");
       fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Deleting existing tunnels.");
       $tunnelarr = json_decode($tunneljson);
