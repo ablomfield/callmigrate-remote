@@ -1,18 +1,27 @@
 #!/bin/bash
 
-DIRECTORY_TO_WATCH="/opt/callmigrate/cronwatch"
+FILE_TO_WATCH="/opt/callmigrate/cronwatch/cron.now"
 
-while true; do
-  CURRENT_HASH=$(ls -lR "$DIRECTORY_TO_WATCH" | sha256sum | awk '{print $1}')
+#!/bin/bash
+
+# Your service logic here
+function run_service {
+  CURRENT_HASH=$(sha256sum $FILE_TO_WATCH | awk '{print $1}')
   if [ -z "$LAST_HASH" ]; then
     LAST_HASH="$CURRENT_HASH"
   fi
 
   if [ "$CURRENT_HASH" != "$LAST_HASH" ]; then
     /bin/php /opt/callmigrate/scripts/cron.php
-    # Do something here when a change is detected, e.g., run a command
     LAST_HASH="$CURRENT_HASH"
   fi
 
   sleep 1 # Check every 1 second
+}
+
+while true; do
+  run_service
+done
+
+while true; do
 done
