@@ -25,7 +25,7 @@ if ($action == "synctunnels") {
 }
 
 if ($action == "restartservice") {
-    mysqli_query($dbconn,"INSERT INTO `tasks` (`taskaction`) VALUES('RESTARTTUNNELS')");
+    mysqli_query($dbconn,"INSERT INTO `tasks` (`taskaction`) VALUES('RESTARTSERVICES')");
     $f = fopen('/opt/callmigrate/cronwatch/cron.now', 'w');
     fwrite($f, time());
     fclose($f);
