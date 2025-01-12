@@ -40,8 +40,8 @@ CREATE TABLE `tunnels` (
 CREATE TABLE `tasks` (
   `pkid` int NOT NULL,
   `taskcreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `taskaction` varchar(25) NOT NULL,
-  `taskdetails` varchar(1000) NOT NULL
+  `taskaction` varchar(25) DEFAULT NULL,
+  `taskdetails` varchar(1000) DEFAULT NULL
 );
 
 --
