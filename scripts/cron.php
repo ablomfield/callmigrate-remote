@@ -113,6 +113,9 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
           echo ("Adding " . $tunnelarr->tunnellist[$y]->application . " tunnel. " . $tunnelarr->tunnellist[$y]->remotehost . ":" . $tunnelarr->tunnellist[$y]->remoteport . " to " . $tunnelarr->tunnellist[$y]->tunnelport . "\n");
           mysqli_query($dbconn, "INSERT INTO tunnels (`tunnelname`, `tunnelport`, `localproto`, `localhost`, `localport`) VALUES ('" . $tunnelarr->tunnellist[$y]->application . "', '" . $tunnelarr->tunnellist[$y]->tunnelport . "', '" . $tunnelarr->tunnellist[$y]->remoteproto . "', '" . $tunnelarr->tunnellist[$y]->remotehost . "', '" . $tunnelarr->tunnellist[$y]->remoteport . "')");
         }
+      } else {
+        fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - No tunnels to sync.");
+        echo ("No tunnels to sync!\n");
       }
       $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
       $postchcomp = curl_init($compurl);
@@ -195,6 +198,7 @@ if ($taskcount > 0) {
         fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Restarting tunnel service.");
         exec('service callmigrate-tunnel restart');
       } else {
+        fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - No tunnels to sync.");
         echo ("No tunnels to sync!\n");
       }
       mysqli_query($dbconn, "DELETE FROM `tasks` WHERE `pkid` = " . $rowtasks["pkid"]);
