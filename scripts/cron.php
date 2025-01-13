@@ -118,7 +118,9 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
         echo ("No tunnels to sync!\n");
       }
       fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Restarting tunnel service.");
-      exec('service callmigrate-tunnel restart');
+      exec('service callmigrate-tunnel stop');
+      sleep(5);
+      exec('service callmigrate-tunnel start');
       $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
       $postchcomp = curl_init($compurl);
       curl_setopt($postchcomp, CURLOPT_CUSTOMREQUEST, "POST");
@@ -136,7 +138,9 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
     } elseif ($taskarr->tasklist[$x]->action == "RESTARTTUNNELS") {
       fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Executing tunnel restart.");
       echo ("Restarting tunnel service\n");
-      exec('service callmigrate-tunnel restart');
+      exec('service callmigrate-tunnel stop');
+      sleep(5);
+      exec('service callmigrate-tunnel start');
       $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
       $postchcomp = curl_init($compurl);
       curl_setopt($postchcomp, CURLOPT_CUSTOMREQUEST, "POST");
@@ -201,7 +205,9 @@ if ($taskcount > 0) {
           mysqli_query($dbconn, "INSERT INTO tunnels (`tunnelname`, `tunnelport`, `localproto`, `localhost`, `localport`) VALUES ('" . $tunnelarr->tunnellist[$y]->application . "', '" . $tunnelarr->tunnellist[$y]->tunnelport . "', '" . $tunnelarr->tunnellist[$y]->remoteproto . "', '" . $tunnelarr->tunnellist[$y]->remotehost . "', '" . $tunnelarr->tunnellist[$y]->remoteport . "')");
         }
         fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Restarting tunnel service.");
-        exec('service callmigrate-tunnel restart');
+        exec('service callmigrate-tunnel stop');
+        sleep(5);
+        exec('service callmigrate-tunnel start');
       } else {
         fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - No tunnels to sync.");
         echo ("No tunnels to sync!\n");
@@ -211,7 +217,9 @@ if ($taskcount > 0) {
       fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Restarting services.");
       mysqli_query($dbconn, "DELETE FROM `tasks` WHERE `pkid` = " . $rowtasks["pkid"]);
       echo ("Restarting services\n");
-      exec('service callmigrate-tunnel restart');
+      exec('service callmigrate-tunnel stop');
+      sleep(5);
+      exec('service callmigrate-tunnel start');
       exec('service callmigrate-cronwatch restart');
     }
   }
