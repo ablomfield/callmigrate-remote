@@ -159,6 +159,7 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
   echo ("Unregistering remote\n");
   $tunnelsql = "DELETE FROM tunnels";
   $dbconn->query($tunnelsql);
+  exec('service callmigrate-tunnel stop');
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Unregistering remote.");
 } else {
   fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Found 0 tasks.");
