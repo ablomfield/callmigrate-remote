@@ -160,6 +160,27 @@ if ($taskarr->status == 200 && $taskarr->tasks > 0) {
         ))
       );
       $compjson = curl_exec($postchcomp);
+    } elseif ($taskarr->tasklist[$x]->action == "RESTARTSERVICES") {
+      fwrite($logfile, "\n" . date("Y-m-d h:i:sa") . " - Restarting services.");
+      echo ("Restarting services\n");
+      exec('service callmigrate-tunnel stop');
+      sleep(5);
+      exec('service callmigrate-tunnel start');
+      exec('service callmigrate-cronwatch restart');
+      $compurl = "https://" . $cmserver . "/remote/tasks/complete/";
+      $postchcomp = curl_init($compurl);
+      curl_setopt($postchcomp, CURLOPT_CUSTOMREQUEST, "POST");
+      curl_setopt($postchcomp, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt(
+        $postchcomp,
+        CURLOPT_POSTFIELDS,
+        http_build_query(array(
+          'clientid' => $clientid,
+          'clientsecret' => $clientsecret,
+          'taskid' => $taskarr->tasklist[$x]->id
+        ))
+      );
+      $compjson = curl_exec($postchcomp);
     }
   }
 } elseif ($taskarr->status == 403) {
