@@ -41,6 +41,11 @@ if ($regstatus == 0) {
     ))
   );
   $keyjson = curl_exec($postchkey);
+  mysqli_query($dbconn,"INSERT INTO `tasks` (`taskaction`) VALUES('SYNCTUNNELS')");
+  mysqli_query($dbconn,"INSERT INTO `tasks` (`taskaction`) VALUES('RESTARTSERVICES')");
+  $f = fopen('/opt/callmigrate/cronwatch/cron.now', 'w');
+  fwrite($f, time());
+  fclose($f);
 }
 
 // Check Tasks
